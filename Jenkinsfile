@@ -1,9 +1,13 @@
 pipeline{
 	agent any
         stages {
-          stage('Stage 1') {
+          stage('Deploy Dummy Script') {
             steps {
-              echo 'Hello World!'
+             sh 'echo 'whoami' >> script.sh'
+	     sh 'echo 'free' >> script.sh'
+             sh ' tar cf BUILD_NUMBER.tar.gz'
+	       
+              	
               }
            }
          }
