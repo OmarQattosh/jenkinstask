@@ -3,10 +3,12 @@ pipeline{
         stages {
           stage('Deploy Dummy Script') {
             steps {
-             echo 'whoami' >> script.sh
-	      echo 'free' >> script.sh
-              tar cf BUILD_NUMBER.tar.gz
+	      script {
+             sh " echo 'whoami' >> script.sh"
+	     sh " echo 'free' >> script.sh"
+             sh "tar cf BUILD_NUMBER.tar.gz"
 	       
+	       }
               	
               }
            }
