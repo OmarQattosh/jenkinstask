@@ -12,7 +12,7 @@ pipeline{
 	     sh " echo 'free' >> script.sh"
              sh " echo 'id' >> script.sh"
 	     sh " tar cf ${BUILD_NUMBER}.tar.gz script.sh"
-		      sh " scp ${BUILD_NUMBER}.tar.gz root@${params.R_IP}:/
+             sh " scp ${BUILD_NUMBER}.tar.gz root@${params.R_IP}:/"
 	       
 	       }
               	
