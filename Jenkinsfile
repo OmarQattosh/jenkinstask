@@ -1,6 +1,9 @@
 pipeline{
 	agent any
-        stages {
+	parameters{
+	string( name : 'R_IP' , defaultValue :'172.17.0.3' , description : ' slave ip address')
+	}
+	stages {
           stage('Deploy Dummy Script') {
             steps {
 	      script {
@@ -9,7 +12,7 @@ pipeline{
 	     sh " echo 'free' >> script.sh"
              sh " echo 'id' >> script.sh"
 	     sh " tar cf ${BUILD_NUMBER}.tar.gz script.sh"
-	         
+		      sh " scp ${BUILD_NUMBER}.tar.gz root@${params.R_IP}:/
 	       
 	       }
               	
