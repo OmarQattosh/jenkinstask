@@ -21,7 +21,7 @@ pipeline{
 		    script{
 			int mb = 1024*1024
 Runtime runtime = Runtime.getRuntime()
-			    print "hi"
+			    println runtime.freeMemory()
 
 
 		    }
