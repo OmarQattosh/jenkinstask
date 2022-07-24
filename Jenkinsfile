@@ -21,9 +21,7 @@ pipeline{
 		    script{
 			int mb = 1024*1024
 Runtime runtime = Runtime.getRuntime()
-out.println runtime.freeMemory() / mb
-out.println runtime.totalMemory() / mb
-out.println runtime.maxMemory() / mb
+
 
 		    }
 		    }
