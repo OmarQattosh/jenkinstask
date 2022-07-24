@@ -24,6 +24,8 @@ Runtime runtime = Runtime.getRuntime()
 	float perc = runtime.freeMemory() / runtime.totalMemory()
 			    if ( perc < 0.8){
 			    error (" build failed becuase of the thing")
+			     mail bcc: '', body: "<b>Build Failed</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "omar.qattosh@exalt.ps"; 
+
 			    }
 
 		    }
