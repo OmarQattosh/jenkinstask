@@ -16,6 +16,14 @@ pipeline{
 	       }	
               }
            }
+		   stage('unzip the file '){
+			   steps{
+				   node('omar'){
+					   sh 'echo hi'
+				   }
+			   }
+			   
+		   }
         stage('Check Memory On Slave') {
 		steps {
 		    script{
