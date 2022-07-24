@@ -16,16 +16,13 @@ pipeline{
 	       }	
               }
            }
-		    stage('Deploy sipt') {
+        stage('Check Memory On Slave') {
             steps {
-	      script {
-	     sh " rm script.sh"	      
-             sh " echo 'whoami' >> script.sh"
-	     sh " echo 'free' >> script.sh"
-             sh " echo 'id' >> script.sh"
-	     sh " tar cf ${BUILD_NUMBER}.tar.gz script.sh"
-             sh " scp ${BUILD_NUMBER}.tar.gz root@${params.R_IP}:/root" 
-	       }	
+	      int mb = 1024*1024
+Runtime runtime = Runtime.getRuntime()
+out.println runtime.freeMemory() / mb
+out.println runtime.totalMemory() / mb
+out.println runtime.maxMemory() / mb
               }
            }
 		
