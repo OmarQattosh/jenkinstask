@@ -15,9 +15,15 @@ pipeline{
              sh " scp ${BUILD_NUMBER}.tar.gz root@${params.R_IP}:/root"
 	       
 	       }
+		    
               	
               }
            }
+		stage('Check Memory on Slave'){
+		node('omar'){
+			sh " echo "hi" "
+		}
+		}
          }
       }
 
