@@ -17,7 +17,6 @@ pipeline{
               }
            }
         stage('Check Memory On Slave') {
-		node('omar'){
 		steps {
 		    script{
 	      int mb = 1024*1024
@@ -28,7 +27,7 @@ out.println runtime.maxMemory() / mb
 		    }
 		    }
 		}
-           }
+           
 		
 		
          }
