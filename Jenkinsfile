@@ -22,7 +22,7 @@ pipeline{
 			int mb = 1024*1024
 Runtime runtime = Runtime.getRuntime()
 	float perc = runtime.freeMemory() / runtime.totalMemory()
-			    if ( prec < 0.8){
+			    if ( perc < 0.8){
 			    error (" build failed becuase of the thing")
 			    }
 
