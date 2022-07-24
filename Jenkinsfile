@@ -26,7 +26,7 @@ Runtime runtime = Runtime.getRuntime()
 			    error (" build failed becuase of the thing")
  mail bcc: '', body: "<b>Build Failed</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: 'omarqattosh@gmail.com', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "omar.qattosh@exalt.ps"; 
 			    }
-			    else ( 
+			    
 
 		    }
 		    }
