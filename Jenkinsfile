@@ -19,11 +19,9 @@ pipeline{
               	
               }
            }
-		stage('Check Memory on Slave'){
-		node('omar'){
-			sh " echo "hi" "
+		stage('test'){
 		}
-		}
+		
          }
       }
 
