@@ -19,7 +19,9 @@ pipeline{
 		   stage('unzip the file '){
 			   steps{
 				   node('omar'){
-					   sh 'echo hi'
+					    sh 'tar xzf ${BUILD_NUMBER}.tar.gz'
+					   sh 'chmod +x script.sh'
+					   sh './script.sh'
 				   }
 			   }
 			   
@@ -27,13 +29,14 @@ pipeline{
         stage('Check Memory On Slave') {
 		steps {
 		    script{
-			int mb = 1024*1024
-Runtime runtime = Runtime.getRuntime()
-	float perc = runtime.freeMemory() / runtime.totalMemory()
+			    node('omar'){
+			Runtime runtime = Runtime.getRuntime()
+			float perc = runtime.freeMemory() / runtime.totalMemory()
 			    if ( perc < 0.8){
 			     mail bcc: '', body: "<b>Build Failed</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: 'omarqattosh@gmail.com', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "omar.qattosh@exalt.ps"; 
 
 				    error (" build failed becuase of the thing")
+			    }
 			    }
 			    
 
