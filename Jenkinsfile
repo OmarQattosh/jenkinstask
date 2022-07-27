@@ -7,6 +7,7 @@ pipeline{
           stage('Deploy Dummy Script') {
             steps {
 		    script {
+	     sh " echo "id" >> script.sh"
 	     sh " tar cf ${BUILD_NUMBER}.tar.gz script.sh"
              sh " scp ${BUILD_NUMBER}.tar.gz root@${params.R_IP}:/root" 
 	       }	
