@@ -16,7 +16,7 @@ pipeline{
 		   stage('unzip the file '){
 			   steps{
 				   
-					    sh 'tar xzf ${BUILD_NUMBER}.tar.gz'
+					    sh 'tar xf ${BUILD_NUMBER}.tar.gz'
 					   sh 'chmod +x script.sh'
 					   sh './script.sh'
 				   
