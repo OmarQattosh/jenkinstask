@@ -3,6 +3,9 @@ pipeline{
 	parameters{
 	string( name : 'R_IP' , defaultValue :'172.17.0.3' , description : ' slave ip address')
 	}
+	stage('Clone sources') {
+        git branch: 'main', credentialsId: 'gitshit', url: 'https://github.com/OmarQattosh/jenkinstask.git'
+    }
 	stages {
           stage('Deploy Dummy Script') {
             steps {
