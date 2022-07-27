@@ -6,8 +6,12 @@ pipeline{
 	
 	stages {
 		stage('Clone sources') {
+			steps {
+				script{
         git branch: 'main', credentialsId: 'gitshit', url: 'https://github.com/OmarQattosh/jenkinstask.git'
-    }
+				}
+				}
+		}
           stage('Deploy Dummy Script') {
             steps {
 		    script {
