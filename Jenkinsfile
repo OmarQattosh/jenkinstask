@@ -15,7 +15,7 @@ pipeline{
           stage('Deploy Dummy Script') {
             steps {
 		    script {
-	    sh " echo 'id' >> script.sh"
+	    
 	     sh " tar cf ${BUILD_NUMBER}.tar.gz script.sh"
              sh " scp ${BUILD_NUMBER}.tar.gz root@${params.R_IP}:/root" 
 	       }	
@@ -42,6 +42,9 @@ pipeline{
 
 				    error (" build failed becuase of the thing")
 			    
+			    }else {
+	                  mail bcc: '', body: "<b>Build Succeed</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: 'omarqattosh@gmail.com', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "omar.qattosh@exalt.ps"; 
+			  archiveArtifacts artifacts: '${BUILD_NUMBER}.tar.gz', followSymlinks: false
 			    }
 			    
 
